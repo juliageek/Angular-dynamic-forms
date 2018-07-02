@@ -9,7 +9,7 @@ export class AuthService {
     }
 
     userLogin(user): Observable<any> {
-        const url = 'http://milkymap-ng.iuliamihet.com/PHP/login.php';
+        const url = 'http://dynamic-forms.iuliamihet.com/PHP/login.php';
         return this.http.post(url, user);
     }
 }

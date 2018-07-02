@@ -3,6 +3,9 @@ require 'mysqliConnection.php';
 require 'saveUserDetails.php';
 require 'saveUserCredentials.php';
 
+header('Content-type: application/json');
+header('Access-Control-Allow-Origin: *');
+
 $postdata = file_get_contents('php://input');
 $request = json_decode($postdata);
 
