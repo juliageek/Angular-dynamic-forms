@@ -1,0 +1,90 @@
+<h1 class="user-greeting">Hi there!</h1>
+<form [formGroup]="newUserForm" (ngSubmit)="createUser(newUserForm.value, newUserForm.valid)">
+  <div class="name-container">
+    <div class="form-group">
+      <label class="form-label required" for="firstname">First name</label>
+      <input type="text" id="firstname" name="firstname" placeholder="First name" [formControl]="newUserForm.controls['firstname']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.firstname.hasError('required') && (newUserForm.controls.firstname.touched || submitted)">
+        First name is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label required" for="lastname">Last name</label>
+      <input type="text" id="lastname" name="lastname" placeholder="Last name" [formControl]="newUserForm.controls['lastname']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.lastname.hasError('required') && (newUserForm.controls.lastname.touched || submitted)">
+        Last name is required
+      </div>
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="form-label required" for="birthDate">Birth Date</label>
+    <input type="date" id="birthDate" name="birthDate" placeholder="Birth date" [formControl]="newUserForm.controls['birthdate']">
+    <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.birthdate.hasError('required') && newUserForm.controls.birthdate.touched">
+      Birth date is required
+    </div>
+    <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.birthdate.hasError('maxlength') && newUserForm.controls.birthdate.touched">
+      The date you entered is too long
+    </div>
+  </div>
+  <div class="email-phone">
+    <div class="form-group">
+      <label class="form-label required" for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Email" [formControl]="newUserForm.controls['email']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.email.hasError('required') && newUserForm.controls.email.touched">
+        Email is required
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="!newUserForm.controls.email.valid && newUserForm.controls.email.touched">
+        Oops,that's not a valid email!
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label required" for="phone">Phone number</label>
+      <input type="phone" id="phone" name="phone" placeholder="Phone number" [formControl]="newUserForm.controls['phone']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.phone.hasError('required') && newUserForm.controls.phone.touched">
+        Phone number is required
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.phone.hasError('minlength') && newUserForm.controls.phone.touched">
+        The phone number you entered is too short
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.phone.hasError('maxlength') && newUserForm.controls.phone.touched">
+        The phone number you entered is too long
+      </div>
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.phone.hasError('invalidPhone') && newUserForm.controls.phone.touched">
+        Oops, that's not a valid phone number!
+      </div>
+    </div>
+  </div>
+  <div class="company-location">
+    <div class="form-group">
+      <label class="form-label required" for="company">Company</label>
+      <input type="text" id="company" name="company" placeholder="Company" [formControl]="newUserForm.controls['company']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.company.hasError('required') && newUserForm.controls.company.touched">
+        Company is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label required" for="location">Location</label>
+      <input type="text" id="location" name="location" placeholder="Your location" [formControl]="newUserForm.controls['location']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.location.hasError('required') && newUserForm.controls.location.touched">
+        Location is required
+      </div>
+    </div>
+  </div>
+  <div class="username-password">
+    <div class="form-group">
+      <label class="form-label required" for="username">Username</label>
+      <input type="text" id="username" name="username" placeholder="Username" [formControl]="newUserForm.controls['username']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.username.hasError('required') && newUserForm.controls.username.touched">
+        Username is required
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label required" for="password">Password</label>
+      <input type="password" id="password" name="password" placeholder="Password" [formControl]="newUserForm.controls['password']">
+      <div class="alert alert-danger" role="alert" *ngIf="newUserForm.controls.password.hasError('required') && newUserForm.controls.password.touched">
+        Password is required
+      </div>
+    </div>
+  </div>
+  <button class="btn btn-primary" type="submit">Create user</button>
+</form>

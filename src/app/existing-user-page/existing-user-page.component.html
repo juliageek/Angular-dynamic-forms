@@ -1,0 +1,16 @@
+<h1 class="user-greeting">Hi there, {{currentUser.firstname}}!</h1>
+<div *ngIf="showDialogue" class="user-communication-text animated zoomIn">
+  <p>
+    We are doing our best to offer your top quality services. As part of this process, we would find it very useful to have more information about you
+    so we can customize your experience and make it truly unique. Please update your information in the form below.
+  </p>
+  <button type="button" class="close" (click)="showDialogue=false" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<div *ngIf="!showDialogue" class="user-dialogue-thanks animated zoomIn">
+  Thank you for updating your data.
+</div>
+<div *ngIf="emptyFieldsArray.length>1">
+  <app-dynamic-user-form [fields]="emptyFieldsArray" [ngClass]="(showDialogue===true) ? 'visible' : 'hidden'"></app-dynamic-user-form>
+</div>

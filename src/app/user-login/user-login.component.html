@@ -1,0 +1,27 @@
+<div class="form-container">
+  <form [formGroup]="myForm" (ngSubmit)="login(myForm)" [class.error]="!myForm.valid">
+    <div class="form-group-item">
+      <input
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Username or email"
+              [formControl]="myForm.controls['username']">
+      <div *ngIf="username.touched && username.hasError('required')" class="alert alert-danger">Username is required!</div>
+      <div *ngIf="alertVisible" class="alert alert-danger">Unknown username</div>
+    </div>
+    <div class="form-group-item">
+      <input
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Your password"
+              [formControl]="myForm.controls['password']">
+      <div *ngIf="password.touched && password.hasError('required')" class="alert alert-danger">Password is required!</div>
+      <div *ngIf="passwordAlertVisible" class="alert alert-danger">Wrong password</div>
+    </div>
+    <button class="btn btn-primary" type="submit" [disabled]="myForm.invalid">Login</button>
+    <div class="signup-link" (click)="signUpRedirect()">Sign up</div>
+  </form>
+  <div *ngIf="formAlertVisible" class="alert alert-danger">We couldn't log you in. Please try again</div>
+</div>

@@ -1,0 +1,65 @@
+form, .user-communication-text {
+  margin-left: 20px;
+}
+
+.user-greeting {
+  margin: 10px 0 10px 20px;
+}
+
+form {
+  width: 600px;
+  border-radius: 5px;
+  background-color: #ddd;
+  padding: 20px 30px;;
+}
+
+.name-container, .email-phone, .company-location {
+  display: flex;
+}
+
+form, .btn {
+  font-size: 14px;
+}
+
+.btn {
+  margin-top: 30px;
+}
+
+input {
+  border: none;
+  width: 100%;
+  color: #555;
+  padding: 3px;
+}
+
+input[placeholder] {
+  color: #999;
+}
+
+.form-label {
+  width: 120px;
+}
+
+.form-group {
+  margin-bottom: 10px;
+}
+
+.alert {
+  padding: 5px;
+  margin-bottom: -33px;
+  margin-right: 5px;
+  margin-top: 5px;
+  text-align: center;
+  border: none;
+  border-radius: 2px;
+  font-size: 12px;
+}
+
+.alert-danger {
+  color: red;
+}
+
+.form-label.required:after {
+  color: #d00;
+  content: "*";
+}

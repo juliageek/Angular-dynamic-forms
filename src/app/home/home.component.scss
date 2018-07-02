@@ -1,0 +1,22 @@
+.logo-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 50px;
+  height: 90vh;
+}
+
+h2, h3 {
+  margin-bottom: 10px;
+  text-align: center;
+  padding: 20px 0;
+}
+
+h3 {
+  width: 700px;
+}
+
+.home-greeting {
+  font-size: 40px;
+}
